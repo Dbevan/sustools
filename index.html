@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang=en>
+<title>Sundering Shadows Calendar Conversion</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css" rel="stylesheet">
+
+<h1>Sundering Shadows Calendar Conversion</h1>
+
+<form>
+	<input type=datetime id=dtImput>
+</form>
+<input id=output readonly>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+<script>
+	flatpickr("#dtImput", {
+		enableTime: true,
+		dateFormat: "Y-m-d H:i",
+	})
+	
+	dtImput.addEventListener('change', e => {
+		console.log(e.target.value, e.target, new Date(e.target.value))
+		output.value = convert_to_ic(new Date(e.target.value))
+	})
+	// The game epoch as a unix timestamp
+	const epoch = new Date(720561600 * 1000)
+	console.log(epoch)
+	
+	function convert_to_ic(value) {
+		
+	}
+</script> 
