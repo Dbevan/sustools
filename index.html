@@ -48,14 +48,18 @@
 		secondsPerYear = 5760000,
 		secondsPerMonth = 576000,
 		secondsPerDay = 24000,
-		secondsPerHour = 1200
+		secondsPerHour = 1200,
+
+		monthNames = ["Wintertime", "Renewal", "Springstime", "Plantingdays", "Sundays", "Summerstime", "Growingdays", "Harvestdays", "Autumnstime", "Colddays"],
+		dayNames = ["Shadowday", "Formday", "Waterday", "Flameday", "Lightday", "Lifeday"]
 
 	function convert_to_ic(when) {
 		when += epochDelta
 
 		year.innerText = Math.floor(when / secondsPerYear)
-		month.innerText = Math.floor((when % secondsPerYear) / secondsPerMonth)
-		day.innerText = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay)
+		month.innerText = monthNames[Math.floor((when % secondsPerYear) / secondsPerMonth)]
+		let numericDay = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay)
+		day.innerText = `${numericDay} (${dayNames[numericDay % 6]})`
 		hour.innerText = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
