@@ -23,11 +23,27 @@
 		console.log(e.target.value, e.target, new Date(e.target.value))
 		output.value = convert_to_ic(new Date(e.target.value))
 	})
+	
+	
 	// The game epoch as a unix timestamp
 	const epoch = new Date(720561600 * 1000)
-	console.log(epoch)
 	
-	function convert_to_ic(value) {
+	const epochDelta = 2736020387,
+		secondsPerYear = 5760000,
+		secondsPerMonth = 576000,
+		secondsPerDay = 24000,
+		secondsPerHour = 1200
+	
+
+	function convert_to_ic(when) {
+		when += epochDelta
+		year = Math.floor(when / secondsPerYear),
+		month = Math.floor((when % secondsPerYear) / secondsPerMonth),
+		day = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay),
+		hour = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
+		return [year, month, day, hour]
 		
 	}
+
+	console.log(convert_to_ic((+new Date()) / 1000))
 </script> 
