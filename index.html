@@ -62,7 +62,8 @@
 		year.value = Math.floor(when / secondsPerYear)
 		month.value = Math.floor((when % secondsPerYear) / secondsPerMonth)
 		let numericDay = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay)
-		day.value = numericDay  // (${dayNames[numericDay % 6]})
+		day.value = numericDay
+		dotw.innerText = dayNames[numericDay % 6]
 		hour.value = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
