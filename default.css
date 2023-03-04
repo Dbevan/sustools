@@ -100,15 +100,11 @@ input, select {
   padding: 3px 5px; }
 
 input[type="number"] {
-  padding-right: 0; }
-
-select {
-  appearance: none;
-  border: none;
-  border-radius: 0; }
+  padding-right: 0;
+  text-align: right; }
 
 #dtInput {
   border: 1px solid black; }
 
-#day {
+#month, #day {
   width: 25%; }
