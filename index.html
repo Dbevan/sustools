@@ -65,6 +65,12 @@
 		hour.innerText = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
+	function convert_to_ooc(when) {
+		when -= epochDelta
+
+		let ooc = {year: 0, month: 0, day: 0, hour: 0, minute: 0}
+	}
+
 
 	flatpickr("#dtInput", {
 		enableTime: true,
