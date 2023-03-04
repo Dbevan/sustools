@@ -101,6 +101,15 @@
 		convert_to_ic((+new Date()) / 1000)
 	}
 
+	function update_ic(e) {
+		// do the math!
+		console.warn(convert_to_ooc())
+	}
+
+	for ( let elem of document.querySelectorAll('#ic input, #ic select') )
+		elem.addEventListener('change', update_ic)
+
+
 	// var timeout = setInterval(update_default, 60*1000)  // refresh every 60 seconds
 	update_default()
 
