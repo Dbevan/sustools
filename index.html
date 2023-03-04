@@ -103,7 +103,9 @@
 
 	function update_ic(e) {
 		// do the math!
-		console.warn(convert_to_ooc())
+		let moment = new Date(convert_to_ooc() * 1000)
+
+		dtInput.value = moment.toISOString().substr(0, moment.toISOString().lastIndexOf(':')).replace('T', ' ')
 	}
 
 	for ( let elem of document.querySelectorAll('#ic input, #ic select') )
