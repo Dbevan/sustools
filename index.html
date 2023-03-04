@@ -29,17 +29,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <script>
-	flatpickr("#dtInput", {
-		enableTime: true,
-		dateFormat: "Y-m-d H:i",
-	})
-	
-	dtInput.addEventListener('change', e => {
-		console.log(e.target.value, e.target, new Date(e.target.value))
-		output.value = convert_to_ic(new Date(e.target.value))
-	})
-	
-
 	// The game epoch as a unix timestamp
 	const epoch = new Date(720561600 * 1000)
 	
@@ -48,7 +37,6 @@
 		secondsPerMonth = 576000,
 		secondsPerDay = 24000,
 		secondsPerHour = 1200
-	
 
 	function convert_to_ic(when) {
 		when += epochDelta
@@ -59,5 +47,26 @@
 		hour.innerText = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
-	convert_to_ic((+new Date()) / 1000)
-</script> 
+
+	flatpickr("#dtInput", {
+		enableTime: true,
+		dateFormat: "Y-m-d H:i",
+	})
+	
+	dtInput.addEventListener('change', e => {
+		console.log(e.target.value, e.target, new Date(e.target.value))
+		output.value = convert_to_ic(new Date(e.target.value))
+	})
+
+	function update_default() {
+		dtInput.value = new Date().toISOString().substr(0, new Date().toISOString().lastIndexOf(':')).replace('T', ' ')
+
+		convert_to_ic((+new Date()) / 1000)
+	}
+
+	var timeout = setInterval(update_default, 60*1000)  // refresh every 60 seconds
+	update_default()
+
+	dtInput.addEventListener('click', e => { clearInterval(timeout) })
+
+</script>
