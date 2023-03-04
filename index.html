@@ -15,10 +15,10 @@
 <h1>Sundering Shadows Calendar Conversion</h1>
 
 <dl>
-	<dt><label>Year</label></dt><dd id=year></dd>
-	<dt><label>Month</label></dt><dd id=month></dd>
-	<dt><label>Day</label></dt><dd id=day></dd>
-	<dt><label>Hour</label></dt><dd id=hour></dd>
+	<dt><label for=year>Year</label></dt><dd><input type=number id=year></dd>
+	<dt><label for=month>Month</label></dt><dd><select id=month></select></dd>
+	<dt><label for=day>Day</label></dt><dd><input type=number id=day></dd>
+	<dt><label for=hour>Hour</label></dt><dd><input type=number id=hour></dd>
 </dl>
 
 <form>
@@ -58,11 +58,11 @@
 	function convert_to_ic(when) {
 		when += epochDelta
 
-		year.innerText = Math.floor(when / secondsPerYear)
-		month.innerText = monthNames[Math.floor((when % secondsPerYear) / secondsPerMonth)]
+		year.value = Math.floor(when / secondsPerYear)
+		month.value = Math.floor((when % secondsPerYear) / secondsPerMonth)
 		let numericDay = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay)
-		day.innerText = `${numericDay} (${dayNames[numericDay % 6]})`
-		hour.innerText = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
+		day.value = numericDay  // (${dayNames[numericDay % 6]})
+		hour.value = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
 	function convert_to_ooc(when) {
@@ -71,6 +71,12 @@
 		let ooc = {year: 0, month: 0, day: 0, hour: 0, minute: 0}
 	}
 
+	for ( var i = 0; i < monthNames.length; i++ ) {
+		let elem = document.createElement('option')
+		elem.value = i + 1
+		elem.appendChild(document.createTextNode(monthNames[i]))
+		month.appendChild(elem)
+	}
 
 	flatpickr("#dtInput", {
 		enableTime: true,
