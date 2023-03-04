@@ -13,21 +13,29 @@
 	#day { width: 25%; }
 </style>
 
-<h1>Sundering Shadows Calendar Conversion</h1>
+<main>
+	<h1>Sundering Shadows Calendar Conversion</h1>
 
-<dl id=ic>
-	<dt><label for=year>Year</label></dt><dd><input type=number id=year></dd>
-	<dt><label for=month>Month</label></dt><dd><select id=month></select></dd>
-	<dt><label for=day>Day</label></dt><dd><input type=number id=day> <label id=dotw></label></dd>
-	<dt><label for=hour>Hour</label></dt><dd><input type=number id=hour></dd>
-</dl>
+	<section>
+		<h2>In Character</h2>
+		<dl id=ic>
+			<dt><label for=year>Year</label></dt><dd><input type=number id=year></dd>
+			<dt><label for=month>Month</label></dt><dd><select id=month></select></dd>
+			<dt><label for=day>Day</label></dt><dd><input type=number id=day> <label id=dotw></label></dd>
+			<dt><label for=hour>Hour</label></dt><dd><input type=number id=hour></dd>
+		</dl>
+	</section>
 
-<form>
-	<dl>
-		<dt><label for=dtInput>OOC Date</label></dt>
-		<dd><input type=datetime id=dtInput></dd>
-	</dl>
-</form>
+	<section>
+		<h2>Out of Character</h2>
+		<form>
+			<dl>
+				<dt><label for=dtInput>Date</label></dt>
+				<dd><input type=datetime id=dtInput></dd>
+			</dl>
+		</form>
+	</section>
+</main>
 
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
