@@ -10,14 +10,15 @@
 	}
 
 	input, select { width: 50%; }
+	#day { width: 25%; }
 </style>
 
 <h1>Sundering Shadows Calendar Conversion</h1>
 
-<dl>
+<dl id=ic>
 	<dt><label for=year>Year</label></dt><dd><input type=number id=year></dd>
 	<dt><label for=month>Month</label></dt><dd><select id=month></select></dd>
-	<dt><label for=day>Day</label></dt><dd><input type=number id=day></dd>
+	<dt><label for=day>Day</label></dt><dd><input type=number id=day> <label id=dotw></label></dd>
 	<dt><label for=hour>Hour</label></dt><dd><input type=number id=hour></dd>
 </dl>
 
