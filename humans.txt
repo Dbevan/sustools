@@ -1,0 +1,15 @@
+                            
+/* TEAM */
+
+Developed By: Pandora
+Site: http://sunderingshadows.com/
+
+/* THANKS */
+
+Thanks to Alice Bevan-McGregor <https://github.com/amcgregor> for paired development effort.
+
+/* SITE */
+
+Standards: HTML5, CSS3, ES6
+Components: SASS, Flatpickr
+Software: Sublime, Mac OS
