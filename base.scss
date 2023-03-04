@@ -1,0 +1,165 @@
+/* "Theme" Variable Declarations */
+
+$theme-font: 12px/15px "Open Sans", Verdana, sans-serif !default;
+$theme-background: #333 !default;
+$theme-foreground: #eee !default;
+$theme-space: 10px !default;
+
+
+:root {
+	// Expose our SASS variables out to CSS, and allow for overloading through inheritance.
+	--theme-font: #{$theme-font};
+	--theme-background: #{$theme-background};
+	--theme-foreground: #{$theme-foreground};
+	--theme-space: #{$theme-space};
+}
+
+@media (prefers-color-scheme: dark) {
+	// Extremely rudimentary "dark mode" support inverts foreground and background.
+	:root {
+		--theme-background: #{$theme-foreground};
+		--theme-foreground: #{$theme-background};
+	}
+}
+
+// Include Open Sans font
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+
+/* Meyers Reset / "Public Domain" / v2.0 / 20110126 / https://meyerweb.com/eric/tools/css/reset/ */
+// Modified to apply "theme"-appropriate defaults, where appropriate, and incorporate menu lists.
+// Additionally modified to omit obsolete and eliminated elements such as <center>, <big>, <strike>, etc.
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-size: 100%;
+	font: inherit;
+	font-weight: 300;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	// HTML5 display-role reset for older browsers.
+	display: block;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font: var(--theme-font);
+	color: var(--theme-foreground);
+	background: var(--theme-background);
+}
+
+ol, ul, menu {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+	cursor: text;  // Indicate ability to interact with as text, e.g select.
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	// Sensible default border rules for tables.
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+	font: inherit;  // By default, inherit font properties all the way up to <body>.
+	cursor: default;  // Eliminate all default mouse cursor customization.
+}
+
+a, button {
+	cursor: pointer;  // Indicate ability to click as an action.
+}
+
+input:read-only, textarea:read-only, [contenteditable]:read-only {
+	// Above selectors scoped to prevent matching the entire page.
+	cursor: not-allowed;  // Note how we're defining the _exceptional_ case, here.
+}
+
+:read-write {
+	cursor: text;  // Indicate ability to manipulate as mutable text.
+}
+
+:read-write img, :read-write input, :read-write textarea {
+	cursor: pointer;  // Images and fields aren't text, let's be careful about inline-editable ones.
+}
+
+// Automatically eliminate conflicting margins.
+// Specifically, margins on leading and final elements which would extend "beyond" the container.
+// Correct implementation would require the margin to be applied to the container, if intentional.
+// Alternatively, applied as padding to the container instead.
+
+/*
+:first-child {
+	margin-top: 0 !important;
+	margin-left: 0 !important;
+}
+
+:last-child {
+	margin-bottom: 0 !important;
+	margin-right: 0 !important;
+}
+*/
+
+// Add back spacing between structural elements.
+
+header + *,  // Content immediately following a header should be separated from that header.
+footer,  // All footers should be spaced away from the section they represent.
+section + section,  // Separate sections from each-other.
+h2, dd + dt, // Headers and inputs.
+* + p  // Paragraphs deserve a little space from any preceeding content.
+{ margin-top: var(--theme-space); }
+
+
+/* Presentation */
+
+main {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 15px;
+	font-weight: 400;
+}
+
+h2 {
+	font-size: 13px;
+	font-weight: 400;
+}
+
+input, select {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 3px 5px;
+}
+
+input[type="number"]{
+	padding-right: 0;
+}
+
+select { 
+	appearance: none;
+	border:none;
+	border-radius: 0;
+}
+
+#dtInput {
+	border: 1px solid black;
+}
+
+#day { width: 25%; }
+
