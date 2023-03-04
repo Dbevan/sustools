@@ -52,13 +52,12 @@
 
 	function convert_to_ic(when) {
 		when += epochDelta
-		year = Math.floor(when / secondsPerYear),
-		month = Math.floor((when % secondsPerYear) / secondsPerMonth),
-		day = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay),
-		hour = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
-		return [year, month, day, hour]
-		
+
+		year.innerText = Math.floor(when / secondsPerYear)
+		month.innerText = Math.floor((when % secondsPerYear) / secondsPerMonth)
+		day.innerText = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay)
+		hour.innerText = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
-	console.log(convert_to_ic((+new Date()) / 1000))
+	convert_to_ic((+new Date()) / 1000)
 </script> 
