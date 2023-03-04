@@ -70,8 +70,7 @@
 	})
 	
 	dtInput.addEventListener('change', e => {
-		console.log(e.target.value, e.target, new Date(e.target.value))
-		output.value = convert_to_ic(new Date(e.target.value))
+		convert_to_ic((+new Date(e.target.value) / 1000))
 	})
 
 	function update_default() {
