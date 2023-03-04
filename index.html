@@ -67,10 +67,16 @@
 		hour.value = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
-	function convert_to_ooc(when) {
-		when -= epochDelta
+	function convert_to_ooc() {
 
-		let ooc = {year: 0, month: 0, day: 0, hour: 0, minute: 0}
+		let ooc = {year: 0, month: 0, day: 0, hour: 0, minute: 0},
+			icYear = parseInt(year.value, 10) * secondsPerYear,
+			icMonth = parseInt(month.value, 10) * secondsPerMonth,
+			icDay = parseInt(day.value, 10) * secondsPerDay,
+			icHour = parseInt(hour.value, 10) * secondsPerHour
+
+		return (icYear + icMonth + icDay + icHour) - epochDelta
+
 	}
 
 	for ( var i = 0; i < monthNames.length; i++ ) {
