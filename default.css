@@ -1,0 +1,114 @@
+/* "Theme" Variable Declarations */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+:root {
+  --theme-font: 12px/15px Open Sans, Verdana, sans-serif;
+  --theme-background: #333;
+  --theme-foreground: #eee;
+  --theme-space: 10px; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-background: #eee;
+    --theme-foreground: #333; } }
+
+/* Meyers Reset / "Public Domain" / v2.0 / 20110126 / https://meyerweb.com/eric/tools/css/reset/ */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 100%;
+  font: inherit;
+  font-weight: 300;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+html, body {
+  height: 100%; }
+
+body {
+  font: var(--theme-font);
+  color: var(--theme-foreground);
+  background: var(--theme-background); }
+
+ol, ul, menu {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none;
+  cursor: text; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  font: inherit;
+  cursor: default; }
+
+a, button {
+  cursor: pointer; }
+
+input:read-only, textarea:read-only, [contenteditable]:read-only {
+  cursor: not-allowed; }
+
+:read-write {
+  cursor: text; }
+
+:read-write img, :read-write input, :read-write textarea {
+  cursor: pointer; }
+
+/*
+:first-child {
+	margin-top: 0 !important;
+	margin-left: 0 !important;
+}
+
+:last-child {
+	margin-bottom: 0 !important;
+	margin-right: 0 !important;
+}
+*/
+header + *,
+footer,
+section + section,
+h2, dd + dt,
+* + p {
+  margin-top: var(--theme-space); }
+
+/* Presentation */
+main {
+  max-width: 400px;
+  margin: 0 auto; }
+
+h1 {
+  font-size: 15px;
+  font-weight: 400; }
+
+h2 {
+  font-size: 13px;
+  font-weight: 400; }
+
+input, select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3px 5px; }
+
+input[type="number"] {
+  padding-right: 0; }
+
+select {
+  appearance: none;
+  border: none;
+  border-radius: 0; }
+
+#dtInput {
+  border: 1px solid black; }
+
+#day {
+  width: 25%; }
