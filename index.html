@@ -82,7 +82,7 @@
 	for ( var i = 0; i < monthNames.length; i++ ) {
 		let elem = document.createElement('option')
 		elem.value = i + 1
-		elem.appendChild(document.createTextNode(monthNames[i]))
+		elem.appendChild(document.createTextNode(`${i + 1}. ${monthNames[i]}`))
 		month.appendChild(elem)
 	}
 
