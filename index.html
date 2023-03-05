@@ -19,6 +19,8 @@
 		</dl>
 	</section>
 
+	<hr id=direction>
+
 	<section>
 		<h2>Out of Character</h2>
 		<form>
@@ -56,6 +58,8 @@
 		dotw.innerText = dayNames[((parseInt(day.value, 10) - 1) % 6)]
 		moty.innerText = monthNames[parseInt(month.value, 10) - 1]
 		hour.value = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
+
+		direction.classList.remove('reverse')
 	}
 
 	function convert_to_ooc() {
@@ -68,6 +72,8 @@
 
 		dotw.innerText = dayNames[((parseInt(day.value, 10) - 1) % 6)]		
 		moty.innerText = monthNames[parseInt(month.value, 10) - 1]
+
+		direction.classList.add('reverse')
 
 		return (icYear + icMonth + icDay + icHour) - epochDelta
 
