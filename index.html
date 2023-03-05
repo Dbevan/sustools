@@ -53,8 +53,8 @@
 		month.value = Math.floor((when % secondsPerYear) / secondsPerMonth)
 		let numericDay = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay)
 		day.value = numericDay
-		dotw.innerText = dayNames[numericDay % 6]
-		moty.innerText = monthNames[parseInt(month.value, 10)]
+		dotw.innerText = dayNames[((parseInt(day.value, 10) - 1) % 6)]
+		moty.innerText = monthNames[parseInt(month.value, 10) - 1]
 		hour.value = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
@@ -66,8 +66,8 @@
 			icDay = parseInt(day.value, 10) * secondsPerDay,
 			icHour = parseInt(hour.value, 10) * secondsPerHour
 
+		dotw.innerText = dayNames[((parseInt(day.value, 10) - 1) % 6)]		
 		moty.innerText = monthNames[parseInt(month.value, 10) - 1]
-		dotw.innerText = dayNames[((parseInt(day.value, 10) - 1) % 6)]
 
 		return (icYear + icMonth + icDay + icHour) - epochDelta
 
