@@ -12,10 +12,10 @@
 	<section>
 		<h2>In Character</h2>
 		<dl id=ic>
-			<div><dt><label for=year>Year</label></dt><dd><input type=number id=year min=0></dd></div>
-			<div><dt><label for=month>Month</label></dt><dd><input type=number id=month min=1 max=10> <label id=moty></label></select></dd></div>
-			<div><dt><label for=day>Day</label></dt><dd><input type=number id=day min=1 max=24> <label id=dotw></label></dd></div>
-			<div><dt><label for=hour>Hour</label></dt><dd><input type=number id=hour min=0 max=20></dd></div>
+			<dt><label for=year>Year</label></dt><dd><input type=number id=year min=0></dd>
+			<dt><label for=month>Month</label></dt><dd><select id=month></select></dd>
+			<dt><label for=day>Day</label></dt><dd><input type=number id=day min=1 max=24> <label id=dotw></label></dd>
+			<dt><label for=hour>Hour</label></dt><dd><input type=number id=hour min=0 max=20></dd>
 		</dl>
 	</section>
 
@@ -54,7 +54,6 @@
 		let numericDay = Math.floor(((when % secondsPerYear) % secondsPerMonth) / secondsPerDay)
 		day.value = numericDay
 		dotw.innerText = dayNames[numericDay % 6]
-		moty.innerText = monthNames[parseInt(month.value, 10)]
 		hour.value = Math.floor((((when % secondsPerYear) % secondsPerMonth) % secondsPerDay) / secondsPerHour)
 	}
 
@@ -66,11 +65,15 @@
 			icDay = parseInt(day.value, 10) * secondsPerDay,
 			icHour = parseInt(hour.value, 10) * secondsPerHour
 
-		moty.innerText = momthNames[icMonth]
-		dotw.innerText = dayNames[icDay % 6]
-
 		return (icYear + icMonth + icDay + icHour) - epochDelta
 
+	}
+
+	for ( var i = 0; i < monthNames.length; i++ ) {
+		let elem = document.createElement('option')
+		elem.value = i + 1
+		elem.appendChild(document.createTextNode(`${i + 1}. ${monthNames[i]}`))
+		month.appendChild(elem)
 	}
 
 	flatpickr("#dtInput", {
