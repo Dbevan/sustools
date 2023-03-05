@@ -107,7 +107,7 @@ dl div {
 
 dd label {
   display: block;
-  font-style: italic; }
+  color: #888; }
 
 body {
   display: flex;
