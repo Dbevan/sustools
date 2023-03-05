@@ -1,12 +1,12 @@
 /* "Theme" Variable Declarations */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
 :root {
-  --theme-font: 12px/15px Open Sans, Verdana, sans-serif;
+  --theme-font: 15px/18px Open Sans, Verdana, sans-serif;
   --theme-background: #333;
   --theme-foreground: #eee;
-  --theme-space: 10px; }
+  --theme-space: 15px; }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --theme-background: #eee;
     --theme-foreground: #333; } }
@@ -84,29 +84,38 @@ main {
   margin: 0 auto; }
 
 h1 {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 400; }
 
 h2 {
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 400; }
 
 input {
   width: 100%;
   box-sizing: border-box;
-  padding: 3px 5px; }
+  padding: calc(var(--theme-space)/3) calc(var(--theme-space)/2); }
 
 input[type="number"] {
   padding-right: 0; }
 
-#dtInput {
-  border: 1px solid black; }
+input[type="datetime"] {
+  width: 100%; }
+
+dl div {
+  width: 25%; }
 
 dd label {
-  display: block; }
+  display: block;
+  font-style: italic; }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 #ic {
   display: flex; }
   #ic > * {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     margin-left: var(--theme-space); }

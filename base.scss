@@ -1,9 +1,9 @@
 /* "Theme" Variable Declarations */
 
-$theme-font: 12px/15px "Open Sans", Verdana, sans-serif !default;
+$theme-font: 15px/18px "Open Sans", Verdana, sans-serif !default;
 $theme-background: #333 !default;
 $theme-foreground: #eee !default;
-$theme-space: 10px !default;
+$theme-space: 15px !default;
 
 
 :root {
@@ -14,7 +14,7 @@ $theme-space: 10px !default;
 	--theme-space: #{$theme-space};
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
 	// Extremely rudimentary "dark mode" support inverts foreground and background.
 	:root {
 		--theme-background: #{$theme-foreground};
@@ -130,38 +130,49 @@ main {
 }
 
 h1 {
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: 400;
 }
 
 h2 {
-	font-size: 13px;
+	font-size: 17px;
 	font-weight: 400;
 }
 
 input {
 	width: 100%;
 	box-sizing: border-box;
-	padding: 3px 5px;
+	padding: calc(var(--theme-space)/3) calc(var(--theme-space)/2);
 }
 
-input[type="number"]{
+input[type="number"] {
 	padding-right: 0;
 }
 
-#dtInput {
-	border: 1px solid black;
+input[type="datetime"] {
+	width: 100%;
+}
+
+dl div {
+	width: 25%;
 }
 
 dd label {
 	display: block;
+	font-style: italic;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #ic {
 	display: flex;
 
 	> * {
-		flex: 1 0 auto;
+		flex: 1 1 auto;
 		margin-left: var(--theme-space);
 	}
 }
