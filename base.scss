@@ -149,17 +149,11 @@ input, select {
 
 input[type="number"]{
 	padding-right: 0;
-}
-
-select { 
-	appearance: none;
-	border:none;
-	border-radius: 0;
+	text-align: right;
 }
 
 #dtInput {
 	border: 1px solid black;
 }
 
-#day { width: 25%; }
-
+#month, #day { width: 25%; }
