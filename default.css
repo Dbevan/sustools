@@ -63,17 +63,14 @@ input:read-only, textarea:read-only, [contenteditable]:read-only {
 :read-write img, :read-write input, :read-write textarea {
   cursor: pointer; }
 
-/*
-:first-child {
-	margin-top: 0 !important;
-	margin-left: 0 !important;
-}
+div:first-child {
+  margin-top: 0 !important;
+  margin-left: 0 !important; }
 
-:last-child {
-	margin-bottom: 0 !important;
-	margin-right: 0 !important;
-}
-*/
+div:last-child {
+  margin-bottom: 0 !important;
+  margin-right: 0 !important; }
+
 header + *,
 footer,
 section + section,
@@ -94,7 +91,7 @@ h2 {
   font-size: 13px;
   font-weight: 400; }
 
-input, select {
+input {
   width: 100%;
   box-sizing: border-box;
   padding: 3px 5px; }
@@ -106,5 +103,11 @@ input[type="number"] {
 #dtInput {
   border: 1px solid black; }
 
-#month, #day {
-  width: 25%; }
+dd label {
+  display: block; }
+
+#ic {
+  display: flex; }
+  #ic > * {
+    flex: 1 0 auto;
+    margin-left: var(--theme-space); }
